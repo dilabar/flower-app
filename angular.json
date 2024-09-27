@@ -30,7 +30,7 @@
               "src/styles.css"
             ],
             "scripts": [], 
-            "baseHref": "https://dilbarh2.github.io/flower-app/"
+            "baseHref": "https://dilabar.github.io/flower-app/"
           },
           "configurations": {
             "production": {
