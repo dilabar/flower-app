@@ -29,8 +29,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [], 
-            "baseHref": "https://dilabar.github.io/flower-app/"
+            "scripts": []
+    
           },
           "configurations": {
             "production": {
