@@ -1,0 +1,22 @@
+<div class="container">
+    <h2>CSV Import/Export</h2>
+  
+    <div class="form-group">
+      <label for="modelSelect">Select Model</label>
+      <select class="form-control" id="modelSelect" [(ngModel)]="selectedModel">
+        <option *ngFor="let model of models" [value]="model">{{ model | titlecase }}</option>
+      </select>
+    </div>
+  
+    <div class="form-group">
+      <h5>Import CSV Data to {{ selectedModel | titlecase }}</h5>
+      <input type="file" (change)="onFileSelected($event)" />
+      <button class="btn btn-primary" (click)="importCSV()">Import CSV</button>
+    </div>
+  
+    <div class="form-group">
+      <h5>Export CSV Data for {{ selectedModel | titlecase }}</h5>
+      <button class="btn btn-secondary" (click)="exportCSV()">Export CSV</button>
+    </div>
+  </div>
+  

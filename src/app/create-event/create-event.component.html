@@ -1,0 +1,248 @@
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2>Create New Event</h2>
+      <a href="#" class="btn btn-primary" onclick="alert('Save the event first to design it.')">Design Event</a>
+    </div>
+  
+    <form [formGroup]="eventForm" (ngSubmit)="createEvent()">
+      <!-- Event Info -->
+      <div class="card mb-4">
+        <div class="card-header">
+          <h3 class="mb-0">Event Information</h3>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="created_day">Created Day:</label>
+                <input type="date" class="form-control" formControlName="created_day" readonly>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="wedding_day">Wedding Day:</label>
+                <input type="date" class="form-control" formControlName="wedding_day" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" formControlName="name" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" formControlName="email" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" class="form-control" formControlName="phone" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" class="form-control" formControlName="price" step="0.01" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="status">Status:</label>
+                <select class="form-control" formControlName="status" required>
+                  <option value="Pending">Pending</option>
+                  <option value="Confirmed">Confirmed</option>
+                  <option value="Cancelled">Cancelled</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Personal Info -->
+      <div class="card mb-4">
+        <div class="card-header">
+          <h3 class="mb-0">Personal Information</h3>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="bride_name">Bride Name:</label>
+                <input type="text" class="form-control" formControlName="bride_name">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="groom_name">Groom Name:</label>
+                <input type="text" class="form-control" formControlName="groom_name">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="referred_by">Referred by:</label>
+                <input type="text" class="form-control" formControlName="referred_by">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Wedding Info -->
+      <div class="card mb-4">
+        <div class="card-header">
+          <h3 class="mb-0">Wedding Information</h3>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" class="form-control" formControlName="location">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="guests">Guests:</label>
+                <input type="text" class="form-control" formControlName="guests">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Ceremony, Cocktails, Reception -->
+      <div class="card mb-4">
+        <div class="card-header">
+          <h3 class="mb-0">Event Schedule</h3>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <!-- Ceremony -->
+            <div class="col-md-4 mb-4">
+              <h4>Ceremony</h4>
+              <div class="form-group">
+                <label for="ceremony_start_time">Start Time:</label>
+                <input type="text" class="form-control" formControlName="ceremony_start_time">
+              </div>
+              <div class="form-group">
+                <label for="ceremony_setup_time">Setup Time:</label>
+                <input type="text" class="form-control" formControlName="ceremony_setup_time">
+              </div>
+              <div class="form-group">
+                <label for="ceremony_location">Location:</label>
+                <input type="text" class="form-control" formControlName="ceremony_location">
+              </div>
+            </div>
+  
+            <!-- Cocktails -->
+            <div class="col-md-4 mb-4">
+              <h4>Cocktails</h4>
+              <div class="form-group">
+                <label for="cocktails_start_time">Start Time:</label>
+                <input type="text" class="form-control" formControlName="cocktails_start_time">
+              </div>
+              <div class="form-group">
+                <label for="cocktails_setup_time">Setup Time:</label>
+                <input type="text" class="form-control" formControlName="cocktails_setup_time">
+              </div>
+              <div class="form-group">
+                <label for="cocktails_location">Location:</label>
+                <input type="text" class="form-control" formControlName="cocktails_location">
+              </div>
+            </div>
+  
+            <!-- Reception -->
+            <div class="col-md-4 mb-4">
+              <h4>Reception</h4>
+              <div class="form-group">
+                <label for="reception_start_time">Start Time:</label>
+                <input type="text" class="form-control" formControlName="reception_start_time">
+              </div>
+              <div class="form-group">
+                <label for="reception_setup_time">Setup Time:</label>
+                <input type="text" class="form-control" formControlName="reception_setup_time">
+              </div>
+              <div class="form-group">
+                <label for="reception_location">Location:</label>
+                <input type="text" class="form-control" formControlName="reception_location">
+              </div>
+              <div class="form-group">
+                <label for="breakdown_time">Break Down Time:</label>
+                <input type="text" class="form-control" formControlName="breakdown_time">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Wedding Costs -->
+      <div class="card mb-4">
+        <div class="card-header">
+          <h3 class="mb-0">Wedding Costs</h3>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="price_arrangements">Price of Arrangements:</label>
+                <input type="number" class="form-control" formControlName="price_arrangements" step="0.01">
+              </div>
+              <div class="form-group">
+                <label for="cost_flowers">Cost of Flowers:</label>
+                <input type="number" class="form-control" formControlName="cost_flowers" step="0.01">
+              </div>
+              <div class="form-group">
+                <label for="rent_cost_misc">Rent Cost (Misc Items):</label>
+                <input type="number" class="form-control" formControlName="rent_cost_misc" step="0.01">
+              </div>
+              <div class="form-group">
+                <label for="labor_time">Labor Time (Minutes):</label>
+                <input type="number" class="form-control" formControlName="labor_time">
+              </div>
+            </div>
+  
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="delivery_setup_price">Delivery and Set Up Price:</label>
+                <select class="form-control" formControlName="delivery_setup_price">
+                  <option *ngFor="let price of deliverySetupPrices" [value]="price.amount">
+                    {{ price.name }} - ${{ price.amount }}
+                  </option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="breakdown_price">Break Down Price:</label>
+                <select class="form-control" formControlName="breakdown_price">
+                  <option *ngFor="let price of breakDownPrices" [value]="price.amount">
+                    {{ price.name }} - ${{ price.amount }}
+                  </option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="transfer_fee">Transfer Fee:</label>
+                <select class="form-control" formControlName="transfer_fee">
+                  <option *ngFor="let price of transferPrices" [value]="price.amount">
+                    {{ price.name }} - ${{ price.amount }}
+                  </option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="total_price">Total Wedding Price:</label>
+                <input type="number" class="form-control" formControlName="total_price" step="0.01">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button type="submit" class="btn btn-success">Create Event</button>
+      </div>
+    </form>
+  </div>
+  

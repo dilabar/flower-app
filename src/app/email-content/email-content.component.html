@@ -1,0 +1,24 @@
+<div class="email-content">
+    <h2>Email Content</h2>
+    
+    <button class="print-button" (click)="printPDF()">Print PDF</button>
+    
+    <h3>Headers</h3>
+    <ul>
+      <li *ngFor="let header of headers">
+        <strong>{{ header.name }}:</strong> {{ header.value }}
+      </li>
+    </ul>
+  
+    <h3>Body</h3>
+    <div class="body-content" [innerHtml]="body">  <!-- Bind HTML content here -->
+    </div>
+  
+    <h3>Attachments</h3>
+    <ul>
+      <li *ngFor="let attachment of attachments">
+        <a [routerLink]="['/download_attachment', attachment.id]">{{ attachment.filename }}</a>
+      </li>
+    </ul>
+  </div>
+  

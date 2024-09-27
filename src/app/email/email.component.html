@@ -1,0 +1,11 @@
+<h2>Email List</h2>
+<div class="email-list">
+  <ul *ngIf="emails.length > 0; else noEmails">
+    <li *ngFor="let email of emails">
+      <a [routerLink]="['/email-content', email.id]">{{ email.snippet }}</a>
+    </li>
+  </ul>
+  <ng-template #noEmails>
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+  </ng-template>
+</div>

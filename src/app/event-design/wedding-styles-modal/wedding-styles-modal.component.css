@@ -1,0 +1,93 @@
+/* Modal header */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 10px;
+  }
+  
+  .modal-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  /* Close button */
+  .btn-close {
+    font-size: 1.2rem;
+    background: transparent;
+    border: none;
+  }
+  
+  /* Modal body styles */
+  .modal-body {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .styles-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+  }
+  
+  .style-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 150px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .style-card:hover {
+    background-color: #f1f1f1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .style-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .style-name {
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+  }
+  
+  /* Modal footer */
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  /* Ensure the modal is above the backdrop */
+.modal-content {
+    z-index: 1060 !important;  /* Higher than the backdrop */
+    position: relative;
+  }
+  
+  /* Ensure the backdrop stays in the background */
+  .modal-backdrop {
+    z-index: 0 !important;  /* Should be lower than the modal */
+  }
+  
+  /* Optional styling for better clarity */
+  .modal-body {
+    overflow-y: auto;
+  }
+  
+  .modal-header, .modal-footer {
+    z-index: 1061; /* Same as modal content */
+  }
+  

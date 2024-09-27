@@ -1,0 +1,27 @@
+<div class="custom-wedding-styles-container">
+  <h5 class="custom-card-title">Wedding Styles</h5>
+  <div class="custom-container-line"></div>
+
+  <div class="custom-wedding-card-body-wrapper">
+    <!-- Loop for filled wedding style cards -->
+    <div *ngFor="let style of styles; let i = index" class="custom-wedding-card-body custom-card-button" id="custom_card_wedding_styles_{{ i }}">
+      <div>
+        <img [src]="style.image_url" alt="Wedding Style Image" id="custom_style_image_{{ i }}" class="custom-style-image" *ngIf="style.image_url">
+        <!-- Remove button over the image -->
+        <button class="custom-remove-button" id="custom_remove_button_wedding_styles_{{ i }}" (click)="removeWeddingStyle(i)">X</button>
+      </div>
+    </div>
+    
+
+    <!-- Loop for empty (add) wedding style cards -->
+    <div *ngFor="let empty of emptyStyles; let j = index" class="custom-wedding-card-body custom-card-button" id="custom_card_wedding_styles_empty_{{ j }}">
+      <div class="custom-plus-button" id="custom_plus_button_wedding_styles_{{ j }}" (click)="openWeddingStylesModal()">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" width="56px" height="56px" viewBox="0 0 24 24">
+          <path fill="currentColor"
+            d="M11.75 3a.75.75 0 0 1 .743.648l.007.102l.001 7.25h7.253a.75.75 0 0 1 .102 1.493l-.102.007h-7.253l.002 7.25a.75.75 0 0 1-1.493.101l-.007-.102l-.002-7.249H3.752a.75.75 0 0 1-.102-1.493L3.752 11h7.25L11 3.75a.75.75 0 0 1 .75-.75">
+          </path>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

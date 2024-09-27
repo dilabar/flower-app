@@ -1,0 +1,27 @@
+<div class="custom-wedding-colors-container">
+  <div class="custom-title-and-arrows">
+    <h5 class="custom-card-title">Wedding Colors</h5>
+    <div class="custom-container-line"></div>
+    <div class="custom-arrow custom-left-arrow" (click)="prevPage()" [style.display]="currentPage === 0 ? 'none' : 'block'">&#9664;</div>
+    <div class="custom-arrow custom-right-arrow" (click)="nextPage()" [style.display]="currentPage === totalPages - 1 ? 'none' : 'block'">&#9654;</div>
+  </div>
+
+  <div class="custom-card-button-color-wrapper">
+    <!-- Loop for displayed color buttons (filled and empty) -->
+    <div *ngFor="let color of displayedColors; let i = index" class="custom-card-button-color">
+      <!-- Display the color circle if the color exists -->
+      <div *ngIf="color.color_hex" class="custom-color-circle" [ngStyle]="{ 'background-color': color.color_hex }">
+        <!-- Add the "X" button for removing the color -->
+        <button class="custom-remove-color-button" (click)="removeColor(i, color.id)">X</button>
+      </div>
+      <!-- If there's no color, show the "plus" button to add a new color -->
+      <div *ngIf="!color.color_hex" class="custom-plus-button" (click)="openWeddingColorsModal()">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" width="56px" height="56px" viewBox="0 0 24 24">
+          <path fill="currentColor"
+            d="M11.75 3a.75.75 0 0 1 .743.648l.007.102l.001 7.25h7.253a.75.75 0 0 1 .102 1.493l-.102.007h-7.253l.002 7.25a.75.75 0 0 1-1.493.101l-.007-.102l-.002-7.249H3.752a.75.75 0 0 1-.102-1.493L3.752 11h7.25L11 3.75a.75.75 0 0 1 .75-.75">
+          </path>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

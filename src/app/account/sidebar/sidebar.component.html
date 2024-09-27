@@ -1,0 +1,12 @@
+<nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar fixed-left shadow-lg p-3 collapse d-md-block">
+    <div class="position-sticky">
+      <ul class="nav flex-column">
+        <li class="nav-item" *ngFor="let link of sidebarLinks">
+          <a class="nav-link" [routerLink]="link.route" routerLinkActive="active">
+            <i class="{{ link.icon }}"></i> {{ link.label }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  

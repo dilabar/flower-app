@@ -1,0 +1,13 @@
+/* Add any specific styling for the Transfer Price component */
+
+/* For mobile-friendly views */
+@media (max-width: 768px) {
+    .table th, .table td {
+      white-space: nowrap; /* Prevent text from wrapping */
+    }
+    .table td {
+      text-overflow: ellipsis; /* Add ellipsis for overflow text */
+      overflow: hidden; /* Hide overflow text */
+    }
+  }
+  

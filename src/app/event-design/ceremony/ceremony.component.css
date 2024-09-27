@@ -1,0 +1,230 @@
+/* Main section styling */
+.custom-ceremony-section {
+  background-color: #fff;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Light shadow for depth */
+  max-width: 1600px;
+  margin: 0 auto;
+  overflow: visible; /* Ensure no hidden overflow */
+}
+
+/* Card container: responsive flexbox */
+.custom-ceremony-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Keep reasonable gap between cards */
+  justify-content: flex-start; /* Align cards to the left */
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Individual card styling */
+.custom-ceremony-card {
+  width: 230px; /* Fixed width for better alignment */
+  height: 280px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  margin-bottom: 20px; /* Ensure proper spacing between rows */
+}
+
+.custom-ceremony-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Card title styling */
+.custom-ceremony-card-title {
+  width: 90%;
+  background-color: #b0d3cf;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 0;
+  border-radius: 12px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Plus button styling */
+.ceremony-plus-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #b0d3cf;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ceremony-plus-btn:hover {
+  background-color: #92b4a9;
+}
+
+/* Image styling */
+.custom-ceremony-card-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+/* Action buttons container */
+.ceremony-card-actions {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  border-top: 1px solid #eee;
+}
+
+/* Edit and remove buttons */
+.ceremony-edit-btn,
+.ceremony-remove-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #b0d3cf;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ceremony-edit-btn:hover,
+.ceremony-remove-btn:hover {
+  background-color: #92b4a9;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Modern delete button styling */
+.delete-btn {
+  background-color: #92b4a9; /* Softer red */
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 12px;
+  position: absolute; /* Position at the top-right */
+  top: 10px;
+  right: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(255, 77, 79, 0.2); /* Modern shadow */
+}
+
+.delete-btn:hover {
+  background-color: #ff1f23; /* Darker hover state */
+  transform: scale(1.05); /* Slight scale on hover */
+  box-shadow: 0 6px 15px rgba(255, 77, 79, 0.3); /* Stronger shadow */
+}
+
+
+.custom-btn-add-card{
+  outline: 0;
+  grid-gap: 8px;
+  align-items: center;
+  background-color: #92b4a9;
+  color: #fff;
+  border: 1px solid #000;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: 16px;
+  gap: 8px;
+  justify-content: center;
+  line-height: 1.5;
+  overflow: hidden;
+  padding: 12px 16px;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  transition: all .14s ease-out;
+  white-space: nowrap;
+
+}
+
+.custom-btn-add-card:hover {
+  box-shadow: 4px 4px 0 #000;
+  transform: translate(-4px,-4px);
+}
+.custom-btn-add-card:focus-visible{
+  outline-offset: 1px;
+}
+
+/* Responsive Design */
+
+/* For tablets and larger screens (up to 1024px) */
+@media (max-width: 1024px) {
+  .custom-ceremony-card {
+    width: 200px; /* Adjusted width for tablets */
+    height: 260px;
+  }
+
+  .custom-ceremony-card-image {
+    height: 160px;
+  }
+
+  .custom-ceremony-card-title {
+    font-size: 13px;
+    padding: 5px 0;
+  }
+
+  .ceremony-plus-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
+
+/* For mobile screens (up to 576px) */
+@media (max-width: 576px) {
+  .custom-ceremony-card {
+    width: 100%; /* Full width for mobile */
+    height: auto;
+    margin-bottom: 15px;
+  }
+
+  .custom-ceremony-card-title {
+    font-size: 12px;
+    padding: 4px 0;
+  }
+
+  .custom-ceremony-card-image {
+    height: 140px;
+  }
+
+  .ceremony-plus-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
+
+  .ceremony-card-actions {
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center;
+  }
+
+  .ceremony-edit-btn,
+  .ceremony-remove-btn {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+}

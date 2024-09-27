@@ -1,0 +1,357 @@
+/* .arrangement-card {
+    background-color: #fff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    width: 350px;
+    max-width: 100%;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    vertical-align: top;
+    min-height: 450px;
+    position: relative;
+}
+
+.arrangement-card img {
+    max-width: 100%;
+    border-radius: 15px 15px 0 0;
+    transition: transform 0.3s ease;
+    height: 200px;
+    object-fit: cover;
+}
+
+.arrangement-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.arrangement-card h2,
+.arrangement-card p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+} */
+.flower-col {
+    width: calc(100% / 5); /* Each item takes 1/5 of the row */
+    padding: 10px;
+  }
+  
+  .flower-card {
+    height: 100%; /* Ensure the card takes the full height for consistent layout */
+  }
+  
+  @media (max-width: 1200px) {
+    .flower-col {
+      width: calc(100% / 4); /* 4 items per row on medium screens */
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .flower-col {
+      width: calc(100% / 3); /* 3 items per row on smaller screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .flower-col {
+      width: calc(100% / 2); /* 2 items per row on mobile screens */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .flower-col {
+      width: 100%; /* 1 item per row on extra small screens */
+    }
+  }
+/* Hover effect for Name */
+.name-container {
+    position: relative;
+}
+
+.name-container .hover-box,
+.description-container .hover-box,
+.ingredients-container .hover-box {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    padding: 10px;
+    position: absolute;
+    z-index: 100;
+    width: 300px;
+    border-radius: 8px;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    white-space: normal; /* Allow multiline content */
+    text-align: left; /* Align text to the left */
+}
+
+.name-container:hover .hover-box,
+.description-container:hover .hover-box,
+.ingredients-container:hover .hover-box {
+    display: block;
+}
+
+.hover-box::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.description-container,
+.ingredients-container {
+    position: relative;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center; /* Centers the items vertically */
+    margin-top: 20px;
+}
+
+.pagination button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.pagination button[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+
+/* Responsive design */
+/* @media (max-width: 768px) {
+    .arrangement-card {
+        width: calc(50% - 40px);
+    }
+}
+
+@media (max-width: 576px) {
+    .arrangement-card {
+        width: calc(100% - 40px);
+    }
+} */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+  
+  .text-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .hover-box {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    display: none;
+  }
+  
+  .description-container:hover .hover-box,
+  .ingredients-container:hover .hover-box {
+    display: block;
+  }
+  
+  .pagination button {
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin: 5px;
+  }
+  
+/* Gallery view styling */
+.gallery-view .flower-card {
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery-view .flower-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .flower-card img.card-img-top {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .flower-card h5 {
+    font-size: 1.25rem;
+    margin: 0.5rem 0;
+  }
+  
+/* List view styling */
+.list-view .flower-list-item {
+    padding: 1rem;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background-color: white;
+  }
+  
+  .list-view .flower-list-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .flower-list-image {
+    width: 100%;
+    height: auto;
+    max-height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .list-view h5 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+  }
+  
+  .list-view p {
+    margin: 0.25rem 0;
+  }
+  
+  .modal.fade.show {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  /* Styling for the table header */
+.list-view table thead {
+    background-color: #e9f5f3; /* Use the color from your screenshot */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-collapse: separate;
+    background: linear-gradient(1deg, #17a2b8 0%, #d7ffe0 100%);
+  }
+  
+  .list-view table thead th {
+    padding: 10px;
+    text-align: left;
+    color: #ffffff; /* Darker color for the text */
+    font-weight: 600;
+    border-top: none;
+
+
+  }
+  
+  /* Ensure the corners of the first and last header cells have rounded edges */
+  .list-view table thead th:first-child {
+    border-top-left-radius: 10px;
+  }
+  
+  .list-view table thead th:last-child {
+    border-top-right-radius: 10px;
+  }
+  .arrangement-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .arrangement-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-body {
+    padding: 0px;
+  }
+  
+  .card-title {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+  }
+  
+  .card-type {
+    font-style: italic;
+    color: #888;
+    text-align: center;
+  }
+  
+  .price-section p {
+    margin-bottom: 5px;
+  }
+  
+  .ingredients ul {
+    padding-left: 0;
+    list-style: none;
+    color: #444;
+  }
+  
+  .ingredients li {
+    margin-bottom: 5px;
+  }
+  /* .ingredient-item:hover {
+    background-color: #f0f8ff;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  } */
+  
+  .ingredients-grid {
+    grid-gap: 15px;
+  }
+  .pi-sort-alt {
+    cursor: pointer; /* Show that the sort icon is clickable */
+}
+
+.btn-light {
+    background-color: #ffffff; /* Light background for reset button */
+    border: 1px solid #cfd8dc; /* Subtle border */
+    border-radius: 20px;
+}

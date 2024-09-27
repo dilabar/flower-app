@@ -1,0 +1,234 @@
+<div class="modal-header d-flex justify-content-center position-relative">
+    <h4 class="modal-title text-center w-100">{{ mtype == 'edit' ? 'Update Arrangement' : 'Add Arrangement' }}</h4>
+    <button type="button" class="btn btn-light1 position-absolute top-0 end-0 me-3 mt-2" style="right: 0;" aria-label="Close" (click)="close()">
+		<i class="pi pi-times"></i>
+	</button>
+</div>
+	
+
+<div class="modal-body">
+	<div class="row">
+		<!-- Tabbed Layout with Flexbox -->
+		<div class="col-lg-4 col-md-4 col-sm-6">
+			<!-- Image Preview -->
+			<!-- <div class="d-flex align-items-center justify-content-center">
+        <div *ngIf="imageUrl" class="image-preview text-center">
+            <img [src]="imageUrl" alt="{{arrangement.name}}" class="img-thumbnail"
+                style="width: 150px; height: 150px; object-fit: cover;">
+        </div>
+     </div> -->
+			<div class="form-group">
+				<label for="imageUpload">Image</label>
+				<div *ngIf="imagePreview" class="image-preview text-center">
+					<img [src]="imagePreview" alt="Image Preview" class="img-thumbnail mb-2" />
+				</div>
+
+				<input type="file" id="imageUpload" class="form-control" (change)="onImageChange($event)" />
+			</div>
+
+		
+			<!-- Ingredients Section -->
+			<!-- <div class="form-group">
+    <label for="ingredients">Ingredients (Optional)</label>
+    <div class="tags">
+      <span *ngFor="let ingredient of newIngredients; let i = index" class="badge bg-success text-light">
+        {{ ingredient.name }} ${{ingredient.cost_per_stem}} ({{ ingredient.quantity }})
+        <span class="remove-tag" (click)="removeIngredient(i)">x</span>
+      </span>
+    </div>
+    <div class="d-flex">
+      <select class="form-select me-2" [(ngModel)]="selectedIngredient">
+        <option *ngFor="let choice of ingredientChoices" [ngValue]="choice">{{ choice.name }}</option>
+      </select>
+      <input type="number" class="form-control" [(ngModel)]="selectedQuantity" min="1" />
+      <button type="button" class="btn btn-light1 ms-2" (click)="addIngredient()">+</button>
+    </div>
+  </div> -->
+		
+
+		</div>
+
+		<div class="col-lg-4 col-md-4 col-sm-6">
+				<div class="form-group">
+				<label for="name">Name</label>
+				<input type="text" id="name" class="form-control" [(ngModel)]="arrangement.name" />
+			</div>
+			<div class="form-group">
+				<label for="type_name">Type Name</label>
+				<select name="type_name" id="type_name" class="form-control" [(ngModel)]="selectedType">
+					<option value="" disabled>Select a color</option>
+
+					<option *ngFor="let tp of typeChoices" [value]="tp.id"> {{tp.type_name}}</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label for="desc">Description</label>
+				<input type="text" id="desc" class="form-control" [(ngModel)]="arrangement.description" />
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-4 col-12">
+
+
+			<!-- <div class="form-group">
+        <label for="color">Color</label>
+        <div class="color-options">
+          <span *ngFor="let color of colorChoices" 
+                [ngClass]="{'selected-color': selectedColors.includes(color.id)}"
+                (click)="selectColor(color.id)"
+                class="color-circle"
+                [ngStyle]="{'background-color': color.color_hex}">
+          </span>
+        </div>
+      </div> -->
+			<div class="form-group">
+				<label for="color">Colors ({{ colorChoices.length }})</label>
+				<div class="color-list">
+					<span *ngFor="let color of colorChoices">
+						<label class="color-item">
+							<input type="checkbox" [checked]="selectedColors.includes(color.id)"
+								(change)="toggleColorSelection(color.id)" />
+							<span class="round-checkbox"></span>
+							<span class="color-circle" [ngStyle]="{'background-color': color.color_hex}"></span>
+							<span class="color-name">{{ color.color_name }}</span>
+						</label>
+					</span>
+				</div>
+			</div>
+
+	
+		
+		</div>
+	
+
+		<div class="col-lg-8 col-md-8 col-12">
+			<div class="form-group" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);padding: 20px;">
+
+				<label for="ingredients">Ingredients (Optional) </label>
+				<div class="d-flex mb-2">
+					<select class="form-control" [(ngModel)]="selectedIngredient" placeholder="Select Ingredient">
+						<option value="" disabled>Select Ingredient</option>
+						<option *ngFor="let choice of ingredientChoices" [ngValue]="choice">{{ choice.name }}</option>
+					</select>
+					<input type="number" class="form-control" [(ngModel)]="selectedQuantity" min="1" />
+					<button type="button" class="btn btn-light1 ms-2" (click)="addIngredient()">+</button>
+				</div>
+
+		
+				<!-- <div class="selected-ingredients">
+					<div *ngFor="let ingredient of newIngredients" class="ingredient-card">
+					
+						<div class="ingredient-image-container">
+							<button class="close-button" (click)="removeIngredient(ingredient)">
+							x
+							</button>
+						</div>
+
+						<div class="ingredient-info">
+							<p>{{ ingredient.name }}</p>
+						<p class="price"><strong>Price:</strong> ${{ ingredient.cost_per_stem }}</p>
+							<div class="quantity-container">
+								<button class="quantity-button" (click)="decrementQuantity(ingredient)">-</button>
+								<span class="quantity-value">{{ ingredient.quantity }}</span>
+								<button class="quantity-button" (click)="incrementQuantity(ingredient)">+</button>
+							  </div>
+
+							
+						</div>
+					</div>
+				</div> -->
+
+				<ul class="list-group">
+					<li  *ngFor="let ingredient of newIngredients" class=" row list-group-item d-flex justify-content-between align-items-center p-0 b-shadow">
+					  <div class="col-md-8">
+						{{ ingredient.name }}  <span class="badge">${{ingredient.cost_per_stem}}</span> 
+
+					  </div>
+					
+					  <div class="col-md-4 d-flex justify-content-end">
+						<input type="number" class="form-control" [(ngModel)]="ingredient.quantity" (ngModelChange)="calculateItemCostAndProfit()" placeholder="Quantity" min="1">
+
+						<button class="btn btn-light"  title="Remove Ingredient">
+							<i class="pi pi-times" style="color: red" (click)="removeIngredient(ingredient)"></i>
+						</button>
+					  </div>
+							
+						
+					</li>
+					</ul>
+				
+					  
+					  
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-4 col-12">
+			<div class="form-group">
+				<label for="wedding-style">Wedding Styles ({{ weddingStyleChoices.length }})</label>
+				<div class="wedding-style-list">
+					<span *ngFor="let style of weddingStyleChoices">
+						<label class="wedding-style-item">
+							<input type="checkbox" [checked]="selectedWeddingStyles.includes(style.id)"
+								(change)="toggleStyleSelection(style.id)" />
+							<span class="round-checkbox"></span>
+							<span class="style-name">{{ style.style_name }}</span>
+						</label>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- Price Section -->
+	<div class="form-group">
+		<label>Price Details</label>
+		<div class="price-details">
+			<div class="row">
+				<div class="col">
+					<label for="cost_per_stem">Cost per min</label>
+					<input type="number" class="form-control" [(ngModel)]="arrangement.cost_per_min" disabled
+						(input)="calculateLaborCost()" />
+				</div>
+				<div class="col">
+					<label for="stems_per_bunch">Labour Time</label>
+					<input type="number" class="form-control" [(ngModel)]="arrangement.labour_time"
+						(input)="calculateLaborCost()" />
+				</div>
+				<div class="col">
+					<label for="stems_per_bunch">Labour Cost</label>
+					<input type="number" class="form-control" [(ngModel)]="arrangement.labour_cost" disabled />
+				</div>
+				<div class="col">
+					<label for="stems_per_bunch">Item Cost</label>
+					<input type="number" class="form-control" [(ngModel)]="arrangement.item_cost" disabled />
+				</div>
+			</div>
+			<div class="row mt-2">
+				<div class="col">
+					<label for="labor_cost">Profit</label>
+					<input type="number" class="form-control" [(ngModel)]="arrangement.profit" disabled />
+				</div>
+				<div class="col">
+					<label for="total_cost">Margin</label>
+					<input type="number" class="form-control" [(ngModel)]="arrangement.margin" disabled />
+				</div>
+				<div class="col">
+					<label for="total_cost">Your Price</label>
+					<input type="number" class="form-control" [(ngModel)]="arrangement.price"
+						(input)="calculateProfitAndMargin()" />
+				</div>
+				<div class="col">
+					<label for="total_cost">Total Cost</label>
+					<input type="number" class="form-control" [(ngModel)]="arrangement.total_cost" />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal-footer">
+	<button type="button" class="btn button-tran" (click)="deleteArrangement(arrangement.id)">Delete</button>
+	<button *ngIf="mtype=='edit'" type="button" class="btn btn-fill" (click)="updateArrangement()">Update</button>
+	<button *ngIf="mtype=='add'" type="button" class="btn btn-fill" (click)="saveArrangement()">Save</button>
+</div>

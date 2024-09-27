@@ -1,0 +1,15 @@
+<div class="modal-header">
+    <h5 class="modal-title">Save Design as Template</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="cancel()"></button>
+  </div>
+  <div class="modal-body">
+    <div class="mb-3">
+      <label for="templateName" class="form-label">Template Name</label>
+      <input type="text" class="form-control" id="templateName" [(ngModel)]="templateName" placeholder="Enter template name">
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="saveTemplate()">Save</button>
+  </div>
+  

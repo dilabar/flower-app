@@ -1,0 +1,34 @@
+<div class="container">
+    <h2>Add Colors</h2>
+    <button class="btn btn-primary mb-4" (click)="openAddColorModal()">Create New Color</button>
+  
+    <div class="color-grid">
+      <div class="color-section">
+        <h3>Your Colors</h3>
+        <div class="color-grid-container">
+          <div
+            class="color-card"
+            *ngFor="let color of userColors"
+            (click)="openEditColorModal(color)"
+          >
+            <div class="color-circle" [ngStyle]="{ 'background-color': color.color_hex }"></div>
+            <p class="color-name">{{ color.color_name }}</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="color-section">
+        <h3>Available Colors</h3>
+        <div class="color-grid-container">
+          <div
+            class="color-card"
+            *ngFor="let color of availableColors"
+          >
+            <div class="color-circle" [ngStyle]="{ 'background-color': color.color_hex }"></div>
+            <p class="color-name">{{ color.color_name }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

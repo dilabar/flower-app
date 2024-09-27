@@ -1,0 +1,22 @@
+<div class="modal-header">
+  <h5 class="modal-title">Add Card</h5>
+  <button type="button" class="btn-close" aria-label="Close" (click)="cancel()"></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="addCardForm">
+    <div class="mb-3">
+      <label for="cardTitle" class="form-label">Card Title</label>
+      <input class="form-control" id="cardTitle" formControlName="cardTitle" type="text">
+    </div>
+    <div class="mb-3">
+      <label for="arrangementType" class="form-label">Arrangement Type</label>
+      <select class="form-select" id="arrangementType" formControlName="arrangementType">
+        <option *ngFor="let type of arrangementTypes" [value]="type.id">{{ type.type_name }}</option>
+      </select>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+      <button type="button" class="btn btn-primary" (click)="addCard()">Add</button>
+    </div>
+  </form>
+</div>

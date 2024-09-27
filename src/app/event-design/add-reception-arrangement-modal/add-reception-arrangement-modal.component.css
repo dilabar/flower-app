@@ -1,0 +1,85 @@
+/* Modal Body */
+.modal-body {
+  padding: 20px;
+}
+
+.search-bar {
+  margin-bottom: 15px;
+  width: 100%; /* Make sure the search bar takes the full width */
+}
+
+/* Arrangement List Wrapper */
+.arrangement-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Arrangement Item Styling */
+.arrangement-item {
+  flex: 0 0 calc(33.33% - 20px); /* 3 items per row */
+  box-sizing: border-box;
+  margin: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.arrangement-item:hover {
+  transform: scale(1.05);
+  border-color: #007bff;
+}
+
+/* Arrangement Image Styling */
+.arrangement-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+/* Footer for Buttons */
+.modal-footer {
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-top: 1px solid #ddd;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.pagination-controls button {
+  min-width: 100px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .arrangement-item {
+    flex: 0 0 calc(50% - 20px); /* 2 items per row on smaller screens */
+  }
+
+  .arrangement-img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 576px) {
+  .arrangement-item {
+    flex: 0 0 calc(100% - 20px); /* 1 item per row on very small screens */
+  }
+
+  .arrangement-img {
+    width: 70px;
+    height: 70px;
+  }
+}

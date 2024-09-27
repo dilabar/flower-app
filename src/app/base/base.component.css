@@ -1,0 +1,85 @@
+.navbar {
+  background-color: #f8f9fa;
+  border-bottom: 3px solid #e5a9a9;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1030;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* margin-bottom: 20px; Removed this since it doesn't work with fixed position */
+}
+
+main.container-fluid {
+  padding-top: 70px; /* Adjust this value to match the height of your navbar */
+}
+
+.navbar-brand {
+  font-family: 'Arial, Helvetica, sans-serif';
+  color: #e5a9a9 !important;
+}
+
+.navbar-nav .nav-item.active .nav-link {
+  font-weight: bold;
+  background-color: #f5d6d6;
+  border-radius: 0.25rem;
+  color: #d9534f !important;
+}
+
+.nav-link {
+  padding: 0.5rem 1rem;
+  color: #d9534f;
+}
+
+.nav-link:hover {
+  background-color: #f5d6d6;
+  border-radius: 0.25rem;
+  color: #d9534f !important;
+}
+
+.navbar-nav.ml-auto {
+  margin-left: auto; /* This ensures that items align to the right */
+}
+
+.card {
+  border-radius: 12px;
+  border: 1px solid #f7e6e6;
+  background-color: #fffaf0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.card-title {
+  font-family: 'Arial, Helvetica, sans-serif';
+  color: #e5a9a9;
+}
+
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #e5a9a9;
+}
+
+.btn-wedding {
+  background-color: #e5a9a9;
+  border-color: #e5a9a9;
+  color: #fff;
+}
+
+.btn-wedding:hover {
+  background-color: #d9534f;
+  border-color: #d9534f;
+}
+
+.nav-item.active .nav-link {
+  background-color: #f8d7da;
+  color: #721c24;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.nav-item.active .nav-link:hover {
+  background-color: #f5c6cb;
+  color: #491217;
+}

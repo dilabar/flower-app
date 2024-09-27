@@ -1,0 +1,71 @@
+<div class="container-fluid">
+    <div class="row">
+      <app-sidebar></app-sidebar>
+  
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="row">
+          <!-- Create New Delivery Price Card -->
+          <div class="col-md-12 mb-4">
+            <div class="card mb-4">
+              <div class="card-header text-center">
+                <h3>Create a New Delivery Price</h3>
+              </div>
+              <div class="card-body">
+                <form [formGroup]="deliveryForm" (ngSubmit)="createDeliveryPrice()">
+                  <div class="row align-items-end">
+                    <div class="col-md-5 mb-3">
+                      <label for="delivery_name" class="form-label">Name</label>
+                      <input type="text" formControlName="delivery_name" id="delivery_name" class="form-control form-control-sm" placeholder="Enter price name" />
+                    </div>
+                    <div class="col-md-5 mb-3">
+                      <label for="delivery_price" class="form-label">Price</label>
+                      <input type="number" formControlName="delivery_price" id="delivery_price" class="form-control form-control-sm" placeholder="Enter price amount" />
+                    </div>
+                    <div class="col-md-2 mb-3">
+                      <button type="submit" class="btn btn-wedding btn-lg w-100">Save</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+  
+            <!-- List of Delivery Prices -->
+            <div class="card">
+              <div class="card-header text-center">
+                <h3>List of Delivery Prices ({{ deliveryPrices.length }})</h3>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-striped mt-3">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Use as Default</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let price of deliveryPrices">
+                        <td>{{ price.name }}</td>
+                        <td>${{ price.amount }}</td>
+                        <td>
+                          <input type="checkbox" [checked]="price.is_default" (change)="setDefaultPrice(price.id)" />
+                        </td>
+                        <td>
+                          <button (click)="deleteDeliveryPrice(price.id)" class="btn btn-danger btn-sm">
+                            <i class="bi bi-trash"></i> Delete
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  

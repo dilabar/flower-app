@@ -1,0 +1,313 @@
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .badge {
+    font-size: 14px;
+    padding: 5px 10px;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .remove-tag {
+    margin-left: 5px;
+    cursor: pointer;
+  }
+  
+  .image-preview img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .modal-body {
+    padding: 1.5rem;
+  }
+  
+  img.img-thumbnail {
+    max-width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+  }
+  
+  .color-options span, .style-options span {
+    display: inline-block;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    border-radius: 0.25rem;
+  }
+  
+  .color-options span.selected-color, .style-options span.selected-style {
+    background-color: #86baac;
+    color: white;
+  }
+  
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .tags .badge {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .remove-tag {
+    margin-left: 0.25rem;
+    cursor: pointer;
+    color: red;
+  }
+  
+  .price-details .row {
+    margin-bottom: 1rem;
+  }
+  .color-options {
+    /* display: flex; */
+    gap: 10px; /* Space between color circles */
+  }
+  
+  .color-circle {
+    width: 20px; /* Width of the circle */
+    height: 20px; /* Height of the circle */
+    border-radius: 50%; /* Make it a circle */
+    cursor: pointer; /* Pointer on hover */
+    border: 1px #cac4c4 solid;; /* Optional border */
+    margin-right: 10px
+  }
+  
+  .selected-color {
+    border: 5px solid #000 !important; /* Highlight the selected color */
+  }
+  .modal-content {
+    border-radius: 20px;
+    padding: 20px;
+    background-color: #fff; /* Light background */
+    box-shadow: rgba(126, 181, 167, 0.25) 0px 4px 4px 2px;
+  }
+  .form-control {
+    border-radius: 10px;
+    /* padding: 10px; */
+    border: 1px solid #e0e0e0; /* Light grey border for input fields */
+  }
+  
+  .form-label {
+    font-weight: bold;
+    color: #333; /* Darker grey for label text */
+  }
+  .color-list {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e5e5e5;
+    padding: 10px;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    position: relative;  
+  }
+  
+  .color-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  /* .color-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+  } */
+  
+  .color-name {
+    margin-left: 10px;
+    font-size: 10px;
+  }
+  .wedding-style-list {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e5e5e5;
+    padding: 10px;
+    border-radius: 5px;
+    max-height: 200px;  /* Set the maximum height for the container */
+    overflow-y: auto;   /* Enable vertical scrolling if items exceed max height */
+  }
+  
+  .wedding-style-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;  /* Add a border to each style item */
+    padding: 5px;            /* Add some padding for better spacing */
+    border-radius: 5px;      /* Optional: Add rounded corners */
+    position: relative;      /* Required for custom checkbox */
+  }
+  
+  .style-name {
+    margin-left: 10px;
+  }
+  
+  /* input[type="checkbox"] {
+    margin-right: 10px;
+  } */
+  .color-list input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none; /* Prevent interaction with the hidden checkbox */
+  }
+   .wedding-style-list input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none; /* Prevent interaction with the hidden checkbox */
+  }
+
+/* Create a custom round checkbox */
+.round-checkbox {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  margin-right: 10px;
+  display: inline-block;
+  padding: 2px;
+  transition: background-color 0.3s ease;
+}
+
+/* Checked state */
+input[type="checkbox"]:checked + .round-checkbox {
+  background-color: #717571; /* Change the color when checked */
+  /* border-color: #4caf50; */
+  position: relative;
+}
+
+input[type="checkbox"]:checked + .round-checkbox:after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  /* background-color: white; */
+}
+
+/* ingredents */
+.ingredient-search {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.ingredient-list {
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.ingredient-item {
+  margin-right: 10px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.ingredient-item  input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+/* Selected ingredients card style */
+.selected-ingredients {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.ingredient-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 150px; /* Small size */
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.ingredient-image {
+  width: 100%;
+  height: 80px; /* Smaller height */
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.ingredient-info {
+  font-size: 12px; /* Smaller font size */
+  /* position: relative; */
+}
+
+.quantity-input {
+  width: 50px;
+  text-align: center;
+  /* margin-top: 5px; */
+  /* position: absolute;
+  right: 0px;
+  top: 35px; */
+  margin-right: 0px;
+}
+.ingredient-info .price{
+  /* position: absolute; */
+    /* left: 0px;
+    top: 35px; */
+    /* margin-top: 35px;
+    margin-left: 0px; */
+}
+.close-button {
+  position: absolute;
+  top: -17px;
+    right: -12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: red;
+
+}
+
+
+.ingredient-image-container {
+  position: relative;
+}
+.quantity-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  align-items: center;
+}
+
+.quantity-button {
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.quantity-value {
+  margin: 0 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.b-shadow{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 12px;
+  border-radius: 20px;
+}

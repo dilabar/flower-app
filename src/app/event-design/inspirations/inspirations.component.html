@@ -1,0 +1,26 @@
+<div class="custom-inspiration-container">
+    <div class="custom-inspiration-section" *ngFor="let inspiration of displayedInspirations; let i = index">
+      <div class="custom-inspiration-card" id="{{ section }}_inspiration_card_{{ i }}">
+        <div>
+          <div *ngIf="inspiration.filename; else addButtonTemplate" class="custom-clickable-element custom-Image" id="{{ section }}_image_container_inspiration_{{ i }}">
+            <img [src]="inspiration.filename" alt="Inspiration Image" />
+            <button *ngIf="inspiration.id" class="custom-remove-button" id="{{ section }}_remove_button_inspiration_{{ i }}" (click)="removeInspiration(i, inspiration.id)">
+              X
+            </button>
+          </div>
+          <!-- Template for the plus button -->
+          <ng-template #addButtonTemplate>
+            <div class="custom-plus-button" id="{{ section }}_plus_button_inspiration_{{ i }}" (click)="triggerFileInput(i)">
+              <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" width="56px" height="56px" viewBox="0 0 24 24">
+                <path fill="currentColor"
+                  d="M11.75 3a.75.75 0 0 1 .743.648l.007.102l.001 7.25h7.253a.75.75 0 0 1 .102 1.493l-.102.007h-7.253l.002 7.25a.75.75 0 0 1-1.493.101l-.007-.102l-.002-7.249H3.752a.75.75 0 0 1-.102-1.493L3.752 11h7.25L11 3.75a.75.75 0 0 1 .75-.75">
+                </path>
+              </svg>
+            </div>
+          </ng-template>
+        </div>
+        <input type="file" id="{{ section }}_input_inspiration_{{ i }}" class="custom-file-input" (change)="onFileSelected($event, i)">
+      </div>
+    </div>
+  </div>
+  

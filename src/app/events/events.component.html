@@ -1,0 +1,111 @@
+<div class="container mt-5">
+  <div class="table-wrapper">
+    <h2 class="mb-4 text-center">All Events</h2>
+
+    <!-- Search and Filter Form -->
+    <form class="mb-4">
+      <div class="row mb-3">
+        <div class="col-md-3 mb-2">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search by Name"
+            [(ngModel)]="filters.name"
+            name="name"
+          />
+        </div>
+        <div class="col-md-3 mb-2">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search by Email"
+            [(ngModel)]="filters.email"
+            name="email"
+          />
+        </div>
+        <div class="col-md-2 mb-2">
+          <input
+            type="date"
+            class="form-control"
+            [(ngModel)]="filters.wedding_day"
+            name="wedding_day"
+          />
+        </div>
+        <div class="col-md-2 mb-2">
+          <button
+            type="button"
+            class="btn btn-success w-100"
+            (click)="searchEvents()"
+          >
+            Search
+          </button>
+        </div>
+        <!-- Create Event Button -->
+        <div class="col-md-2 mb-2">
+          <a routerLink="/create-event" class="btn btn-primary w-100">
+            Create Event
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-2">
+          <select
+            class="form-control"
+            [(ngModel)]="filters.sort_created_day"
+            name="sort_created_day"
+          >
+            <option value="">Sort by Created Day</option>
+            <option value="asc">Oldest to Newest</option>
+            <option value="desc">Newest to Oldest</option>
+          </select>
+        </div>
+        <div class="col-md-6 mb-2">
+          <select
+            class="form-control"
+            [(ngModel)]="filters.sort_wedding_day"
+            name="sort_wedding_day"
+          >
+            <option value="">Sort by Wedding Day</option>
+            <option value="asc">Earliest to Latest</option>
+            <option value="desc">Latest to Earliest</option>
+          </select>
+        </div>
+      </div>
+    </form>
+
+    <!-- Events Table -->
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-striped">
+        <thead class="thead-light">
+          <tr>
+            <th>ID</th>
+            <th>Created Day</th>
+            <th>Wedding Day</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Last Update</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let event of events">
+            <td>{{ event.id }}</td>
+            <td>{{ event.created_day }}</td>
+            <td>{{ event.wedding_day }}</td>
+            <td>
+              <!-- Dynamic link to event details page -->
+              <a [routerLink]="['/event-details', event.id]">{{ event.name }}</a>
+            </td>
+            <td>{{ event.email }}</td>
+            <td>{{ event.phone }}</td>
+            <td>${{ event.price }}</td>
+            <td>{{ event.status }}</td>
+            <td>{{ event.last_update }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

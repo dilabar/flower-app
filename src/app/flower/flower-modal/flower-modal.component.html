@@ -1,0 +1,94 @@
+<!-- Modal Header -->
+
+<div class="modal-header d-flex justify-content-center position-relative">
+    <h4 class="modal-title text-center w-100">{{ mtype=='edit' ? 'Edit Flower' : 'Add Flower' }}</h4>
+    <button type="button" class="btn btn-light1 position-absolute top-0 end-0 me-3 mt-2" style="right: 0;" aria-label="Close" (click)="close()">
+		<i class="pi pi-times"></i>
+	</button>
+</div>
+
+<!-- Modal Body -->
+<div class="modal-body">
+    <form [formGroup]="addFlowerForm" (ngSubmit)="submitFlower()">
+
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Flower Name -->
+                <div class="form-group mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" formControlName="name" class="form-control" id="name"
+                        placeholder="Enter flower name" required>
+                </div>
+                <!-- Flower Color -->
+                <div class="form-group mb-3">
+                    <label for="color" class="form-label">Flower Color</label>
+                    <select formControlName="color_id" class="form-control" id="color" required>
+                        <option value="" disabled>Select a color</option>
+
+                        <option *ngFor="let color of userColors" [value]="color.id">{{ color.color_name }}</option>
+                    </select>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="stems_per_bunch" class="form-label">Stems per Bunch</label>
+                    <input type="number" formControlName="stems_per_bunch" class="form-control text-center" id="stems_per_bunch"
+                        placeholder="0" required>
+                </div>
+                <!-- Stems per Bunch and Cost per Stem -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <label for="cost_per_bunch" class="form-label">Cost per Bunch</label>
+                            <input type="number" formControlName="cost_per_bunch" class="form-control text-center"
+                                id="cost_per_bunch" placeholder="$0.00" (keyup)="onCostperstem($event)"
+                                required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <label for="cost_per_stem" class="form-label">Cost per Stem</label>
+                            <input type="number" formControlName="cost_per_stem" class="form-control  text-center" id="cost_per_stem"
+                                placeholder="$0.00" readonly required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="supplier" class="form-label">Supplier (optional)</label>
+                    <input type="text" formControlName="supplier" class="form-control" id="supplier"
+                        placeholder="Supplier's name">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="">
+                    <label for="image" class="form-label">Flower Image</label>
+                    <input type="file" formControlName="image" (change)="onFileSelected($event)" class="form-control"
+                        id="image">
+                </div>
+            <!-- Image Preview -->
+             <div class="d-flex align-items-center justify-content-center">
+                <div *ngIf="imageUrl" class="image-preview text-center">
+                    <img [src]="imageUrl" alt="Flower Image" class="img-thumbnail"
+                        style="width: 150px; height: 150px; object-fit: cover;">
+                </div>
+             </div>
+          
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <!-- Modal Footer -->
+        <div class="modal-footer text-center">
+            <button type="button" class="btn button-tran" (click)="deleteFlower(currentFlowerId)" *ngIf="mtype=='edit'">
+                Delete
+            </button>
+            <button type="submit" class="btn btn-fill">
+                {{ mtype=='edit' ? 'Update Flower' : 'Add Flower' }}
+            </button>
+        </div>
+
+    </form>
+</div>

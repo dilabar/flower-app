@@ -1,0 +1,37 @@
+<div class="custom-reception-section">
+  <h5 class="custom-reception-section-title">Reception Inspirations</h5>
+  <div class="custom-reception-inspirations">
+    <app-inspirations [section]="'reception'"></app-inspirations>
+  </div>
+
+  <h5 class="custom-reception-section-title">Reception</h5>
+  
+  <div class="custom-reception-card-container">
+    <div *ngFor="let card of receptionCards" class="custom-reception-card">
+      <!-- Editable Title -->
+      <h5 
+        class="custom-reception-card-title" 
+        contenteditable="true" 
+        (blur)="saveTitleChange(card, $event)"
+        (keydown.enter)="saveTitleChange(card, $event); $event.preventDefault()">
+        {{ card.card_title || 'No Title' }}
+      </h5>
+
+      <ng-container *ngIf="card.image_url; else plusButton">
+        <img [src]="card.image_url" alt="{{ card.card_title }}" class="custom-reception-card-image" />
+        <div class="reception-card-actions">
+          <button (click)="openEditModal(card)" class="reception-edit-btn">Edit</button>
+          <button (click)="removeArrangement(card)" class="reception-remove-btn">Remove</button>
+        </div>
+      </ng-container>
+
+      <ng-template #plusButton>
+        <button (click)="openAddModal(card)" class="reception-plus-btn">+</button>
+      </ng-template>
+      <button class="delete-btn" (click)="removeReceptionCard(card)">X</button>
+    </div>
+  </div>
+
+  <!-- Add Card Button -->
+  <button class="custom-btn custom-btn-add-card" (click)="openAddEmptyCardModal()">Add Card</button>
+</div>

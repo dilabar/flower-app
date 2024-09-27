@@ -1,0 +1,232 @@
+/* Container Styling */
+.custom-wedding-colors-container {
+  background-color: #ffffff;
+  border: 1px solid rgba(236, 234, 234, 0.8); /* Softer border */
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 600px; /* Max width for responsiveness */
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+
+.custom-wedding-colors-container:hover {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 30px;
+}
+
+/* Title Styling */
+.custom-card-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.custom-container-line {
+  margin: 0 auto;
+  width: 80%;
+  height: 2px;
+  background-color: #ddd;
+  margin-bottom: 20px;
+  border-radius: 2px;
+}
+
+/* Arrows Styling */
+.custom-title-and-arrows {
+  text-align: center;
+  position: relative;
+}
+
+.custom-arrow {
+  background-color: #f0b8bb;
+  color: white;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 24px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.custom-left-arrow {
+  left: 10px;
+}
+
+.custom-right-arrow {
+  right: 10px;
+}
+
+.custom-arrow:hover {
+  background-color: #e57373;
+}
+
+/* Color Cards */
+.custom-card-button-color-wrapper {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding-bottom: 10px;
+}
+
+.custom-card-button-color-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.custom-card-button-color-wrapper::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+.custom-card-button-color {
+  width: 150px;
+  height: 150px;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.custom-card-button-color:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Color Circles */
+.custom-color-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ff6347; /* Default color for visual reference */
+  transition: transform 0.3s ease;
+}
+
+
+
+/* Plus Button for Adding Colors */
+.custom-plus-button {
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgba(16, 8, 20, 0.46);
+  border-radius: 50%;
+  box-shadow: rgba(238, 170, 173, 0.25) 2px 2px 4px 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  background-color: white;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-plus-button:hover {
+  border-color: #eceaea;
+  background-color: #9fc7bd;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 10px;
+}
+
+.custom-plus-button svg {
+  width: 40px;
+  height: 40px;
+  color: #9d9a9e;
+  transition: color 0.3s ease;
+}
+
+.custom-plus-button:hover svg {
+  color: white;
+}
+
+/* Remove Color Button */
+.custom-remove-color-button {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 25px;
+  height: 25px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.custom-remove-color-button:hover {
+  background-color: #d32f2f;
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .custom-wedding-colors-container {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .custom-card-button-color-wrapper {
+    gap: 10px;
+  }
+
+  .custom-color-circle {
+    width: 50px;
+    height: 50px;
+  }
+
+  .custom-plus-button {
+    width: 50px;
+    height: 50px;
+  }
+
+  .custom-plus-button svg {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 576px) {
+  .custom-wedding-colors-container {
+    padding: 10px;
+  }
+
+  .custom-card-title {
+    font-size: 18px;
+  }
+
+  .custom-color-circle {
+    width: 45px;
+    height: 45px;
+  }
+
+  .custom-plus-button {
+    width: 45px;
+    height: 45px;
+  }
+
+  .custom-plus-button svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .custom-arrow {
+    padding: 8px;
+    font-size: 20px;
+  }
+}

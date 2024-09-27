@@ -1,0 +1,193 @@
+/* General Styling for Wedding Styles */
+.custom-wedding-styles-container {
+  background-color: #ffffff;
+  border: 1px solid rgba(236, 234, 234, 0.8); /* Softer border */
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 15px; /* Enhanced shadow for depth */
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 600px; /* Ensure max width for responsiveness */
+  height: auto;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.custom-wedding-styles-container:hover {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 30px; /* Deeper shadow on hover */
+}
+
+/* Title and Divider Line */
+.custom-card-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #2c3e50; /* Darker color for contrast */
+  text-align: center; /* Center the title */
+}
+
+.custom-container-line {
+  margin: 0 auto;
+  width: 80%;
+  height: 2px;
+  background-color: #ddd;
+  margin-bottom: 20px;
+  border-radius: 2px; /* Slightly rounded for a softer feel */
+}
+
+/* Flexbox Layout for Card Body */
+.custom-wedding-card-body-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  overflow-x: auto; /* Horizontal scrolling for overflow */
+  flex-wrap: nowrap;
+  padding-bottom: 10px;
+  scrollbar-width: thin; /* Custom scrollbar for Firefox */
+  scrollbar-color: #ccc transparent;
+}
+
+.custom-wedding-card-body-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.custom-wedding-card-body-wrapper::-webkit-scrollbar-thumb {
+  background-color: #ccc; /* Custom scrollbar color */
+  border-radius: 4px;
+}
+
+/* Individual Card Style */
+.custom-wedding-card-body {
+  width: 155px;
+  height: 160px;
+  display: inline-block;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.custom-wedding-card-body:hover {
+  transform: translateY(-5px); /* Subtle hover animation */
+}
+
+.custom-style-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.custom-style-image:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Plus Button for Adding New Styles */
+.custom-plus-button {
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgba(16, 8, 20, 0.46);
+  border-radius: 50%;
+  box-shadow: rgba(238, 170, 173, 0.25) 2px 2px 4px 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  background-color: white;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-plus-button:hover {
+  border-color: #eceaea;
+  background-color: #9fc7bd;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 10px;
+}
+
+.custom-plus-button svg {
+  width: 40px;
+  height: 40px;
+  color: #9d9a9e;
+  transition: 200ms;
+}
+
+.custom-plus-button:hover svg {
+  color: white;
+}
+
+/* Remove Button for Deleting Styles */
+.custom-remove-button {
+  background-color: red;
+  color: white;
+  padding: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 10;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.custom-remove-button:hover {
+  background-color: #ff4d4d;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .custom-wedding-styles-container {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .custom-wedding-card-body-wrapper {
+    gap: 10px;
+  }
+
+  .custom-style-image {
+    width: 130px;
+    height: 130px;
+  }
+
+  .custom-plus-button {
+    width: 50px;
+    height: 50px;
+  }
+
+  .custom-plus-button svg {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 576px) {
+  .custom-wedding-styles-container {
+    padding: 10px;
+  }
+
+  .custom-card-title {
+    font-size: 18px;
+  }
+
+  .custom-wedding-card-body-wrapper {
+    gap: 8px;
+  }
+
+  .custom-style-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .custom-plus-button {
+    width: 45px;
+    height: 45px;
+  }
+
+  .custom-plus-button svg {
+    width: 32px;
+    height: 32px;
+  }
+}

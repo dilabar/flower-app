@@ -1,0 +1,17 @@
+.section-margin {
+    margin-top: 20px;
+  }
+  
+  .card-body-content {
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  
+  .me-2 {
+    margin-right: 10px;
+  }
+  
+  .btn {
+    flex: 1;
+  }
+  

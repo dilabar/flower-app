@@ -1,0 +1,27 @@
+<div class="arrangement-type-form">
+    <h2>Create New Arrangement Type</h2>
+  
+    <form (ngSubmit)="onSubmit()" #arrangementForm="ngForm">
+      <div class="form-group">
+        <label for="type_name">Arrangement Type Name</label>
+        <input
+          type="text"
+          id="type_name"
+          name="type_name"
+          class="form-control"
+          required
+          [(ngModel)]="arrangementTypeData.type_name"
+          #type_name="ngModel"
+        />
+        <div *ngIf="type_name.invalid && type_name.touched" class="error">
+          Type name is required
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="arrangementForm.invalid">Create</button>
+    </form>
+  
+    <p *ngIf="successMessage" class="success-message">{{ successMessage }}</p>
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+  </div>
+  

@@ -1,0 +1,21 @@
+<div class="modal-header">
+  <h5 class="modal-title">Apply Design Template</h5>
+  <button type="button" class="btn-close" aria-label="Close" (click)="cancel()"></button>
+</div>
+<div class="modal-body">
+  <div *ngIf="loading" class="loading-spinner-container">
+    <div class="loading-spinner"></div>
+  </div>
+  
+  <div *ngIf="!loading">
+    <label for="templateSelect">Select Template:</label>
+    <select id="templateSelect" class="form-select" [(ngModel)]="selectedTemplateId">
+      <option *ngFor="let template of templates" [value]="template.id">{{ template.template_name }}</option>
+    </select>
+  </div>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+  <button type="button" class="btn btn-primary" (click)="applyTemplate()" [disabled]="loading">Apply Template</button>
+</div>

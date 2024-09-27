@@ -1,0 +1,31 @@
+<div class="modal-header">
+  <h5 class="modal-title">Select Arrangement for {{ card.type_name }}</h5>
+  <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss()"></button>
+</div>
+
+<!-- Search Input for filtering arrangements -->
+<div class="modal-body">
+  <div class="search-bar mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search arrangements..."
+      [(ngModel)]="searchTerm"
+      (input)="filterArrangements()"
+    />
+  </div>
+
+  <!-- Paginated Arrangements List -->
+  <div class="arrangements-list">
+    <div *ngFor="let arrangement of paginatedArrangements" class="arrangement-item" (click)="selectArrangement(arrangement)">
+      <img [src]="arrangement.image_filename" alt="{{ arrangement.name }}">
+      <h6>{{ arrangement.name }}</h6>
+    </div>
+  </div>
+</div>
+
+<!-- Pagination Controls -->
+<div class="pagination-controls">
+  <button class="btn btn-primary me-2" (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+  <button class="btn btn-primary" (click)="nextPage()" [disabled]="currentPage * itemsPerPage >= totalItems">Next</button>
+</div>

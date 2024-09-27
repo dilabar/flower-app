@@ -1,0 +1,153 @@
+<div class="container-fluid mt-4">
+
+  <div class="d-flex justify-content-between align-items-center mb-1">
+    <h1 class="display-4 " style="font-size: 24px;">Arrangements ({{totalArrangements}})     <button type="button" class="btn btn-light1" (click)="openModal(null,'add')">+</button></h1>
+
+  </div>
+
+  <div class="row  mb-4 header-container">
+      <!-- "Date" with Sort and Reset Button -->
+      <div class="col-md-2 d-flex align-items-center">
+        <!-- "Date" Label -->
+        <label class="fw-bold me-2 text-light p-1">Date</label>
+        
+        <!-- Sort Icons (Up/Down) -->
+        <div class="d-flex align-items-center me-2 text-light p-2" (click)="toggleSort()">
+          <i [ngClass]="isAscending ? 'pi pi-sort-alpha-down' : 'pi pi-sort-alpha-up-alt'"></i> <!-- Change icon based on sort direction -->
+        </div>
+
+        <!-- Reset Button -->
+        <div>
+            <button class="btn btn-sm btn-light" (click)="resetFilters()">
+                <i class="pi pi-refresh"></i>
+            </button>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <input 
+            type="text" 
+            class="form-control" 
+            name="SearchDescription" 
+            placeholder="Search by Description" 
+            [(ngModel)]="searchDescription" 
+            (input)="searchArrangements()"
+        />
+    </div>
+    <div class="col-md-2">
+        <input 
+            type="text" 
+            class="form-control" 
+            name="SearchName" 
+            placeholder="Search by Name" 
+            [(ngModel)]="searchName" 
+            (input)="searchArrangements()"
+        />
+    </div>
+    <div class="col-md-2">
+        <select class="form-control" [(ngModel)]="searchColor" (change)="searchArrangements()">
+            <option value="">Search by Color</option>
+            <option *ngFor="let color of colorChoices" [value]="color.id">{{ color.color_name }}</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <select class="form-control" [(ngModel)]="searchType" (change)="searchArrangements()">
+            <option value="">Search by Type</option>
+            <option *ngFor="let type of typeChoices" [value]="type.type_name">{{ type.type_name}}</option>
+        </select>
+    </div>
+    <div class="col-md-2 text-end">
+        <button *ngIf="!listView" class="btn btn-secondary" (click)="switchToListView()">
+            <i class="pi pi-list"></i> List view
+        </button>
+        <button *ngIf="listView" class="btn btn-secondary" (click)="switchToGalleryView()">
+            <i class="pi pi-th-large"></i> Grid view
+        </button>
+    </div>
+</div>
+
+
+   <!-- Gallery View -->
+
+  <div class="row gallery-view" *ngIf="!listView">
+    <div class="flower-col" *ngFor="let arrangement of filteredArrangements">
+      <div class="flower-card card arrangement-card h-100" (click)="openModal(arrangement)">
+            <!-- Price Overlay on Top -->
+      <div class="price-overlay" style="position: absolute; top: 10px; left: 10px; background: rgba(255, 255, 255, 0.8); padding: 10px; border-radius: 8px;">
+        <p style="font-size: 1rem; margin: 0;"><span style="font-weight: normal;">${{ arrangement.price }}</span></p>
+        <!-- <p style="font-size: 1.2rem; font-weight: bold; margin: 0;">Total Price: <span style="color: #86baac;">${{ arrangement.total_price | number:'1.3-3' }}</span></p> -->
+      </div>
+        <!-- Image Section -->
+        <img [src]="arrangement.image_filename" [alt]="arrangement.name" class="card-img-top img-fluid" style="border-radius: 8px;">
+        
+        <!-- Details Section -->
+        <div class="card-body">
+          <!-- Arrangement Name & Type -->
+          <h5 class="card-title" style="font-size: 14px; font-weight: bold; text-align: center;color:#86baac ;">{{ arrangement.name }}</h5>
+          <p class="card-type">{{ arrangement.type_name }}</p>
+  
+          <!-- Divider Line -->
+          <!-- <hr style="border-top: 1px solid #eee; margin: 10px 0;"> -->
+  
+          <!-- Ingredients Section -->
+              <!-- Ingredients Section (Better Design) -->
+        <!-- <div class="ingredients-section ingredients-container" style="margin-top: 15px;" (mouseenter)="onHoverIngredients(arrangement.id)" (mouseleave)="onLeaveHover()">
+          <h6>Ingredients:</h6>
+          <div class="ingredients-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div *ngFor="let ingredient of arrangement.ingredients" class="ingredient-item" style="font-size: 0.7rem;">
+              <i class="fas fa-leaf" style="color: #86baac;"></i> 
+              <span>{{ ingredient.name }} ({{ ingredient.quantity }})</span>
+            </div>
+          </div>
+          <div *ngIf="hoveredIngredients === arrangement.id" class="hover-box">
+            <ul>
+              <li *ngFor="let ingredient of arrangement.ingredients">
+                {{ ingredient.name }} ({{ ingredient.quantity }})
+              </li>
+            </ul>
+          </div>
+        </div> -->
+     
+  
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- List View -->
+  <div class="table-responsive list-view" *ngIf="listView">
+    <table class="table table-striped table-hover ">
+      <thead class="">
+        <tr>
+          <th scope="col">Image</th>
+          <th scope="col">Name</th>
+          <th scope="col">Type</th>
+          <th scope="col">Price</th>
+          <th scope="col">Total Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let arrn of filteredArrangements" (click)="openModal(arrn)">
+          <td>
+            <img [src]="arrn.image_filename"  style="width: 50px; height: 50px; margin-right: 10px;">
+            {{ arrn.name }}
+          </td>
+          <td>{{ arrn.name }}</td>
+          <td>{{ arrn.type_name }}</td>
+          <td>${{ arrn.price }}</td>
+          <td>${{ arrn.total_price }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+  <div class="d-flex justify-content-center mt-4">
+    <button class="btn btn-outline-primary" [disabled]="currentPage === 1" (click)="changePage(currentPage - 1)">Previous</button>
+    <span class="mx-3">Page {{ currentPage }} of {{ totalPages }}</span>
+    <button class="btn btn-outline-primary" [disabled]="currentPage === totalPages" (click)="changePage(currentPage + 1)">Next</button>
+  </div>
+</div>

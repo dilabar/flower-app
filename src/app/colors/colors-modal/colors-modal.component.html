@@ -1,0 +1,18 @@
+<div class="modal-header">
+  <h5 class="modal-title">{{ isEdit ? 'Edit Color' : 'Create New Color' }}</h5>
+  <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
+</div>
+<div class="modal-body">
+  <div class="form-group">
+    <label for="color_name">Color Name</label>
+    <input type="text" id="color_name" class="form-control" [(ngModel)]="color.color_name" required>
+  </div>
+  <div class="form-group">
+    <label for="color_hex">Color Hex</label>
+    <input type="color" id="color_hex" class="form-control" [(ngModel)]="color.color_hex" required>
+  </div>  
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="close()">Cancel</button>
+  <button type="button" class="btn btn-primary" (click)="save()">Save</button>
+</div>

@@ -1,0 +1,206 @@
+/* General styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f7fc; /* Softer background color for a modern feel */
+  margin: 0;
+  padding: 0;
+  color: #333; /* Darker text for readability */
+}
+
+.custom-container {
+  max-width: 1600px;
+  padding: 20px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Card Styling */
+.custom-card {
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.05); /* Softer border for modern minimalism */
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05); /* Softer shadow for elegance */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
+}
+
+/* Wedding Styles, Colors, and Budget Container */
+.custom-wedding-styles-colors-budget-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s ease;
+}
+
+.custom-wedding-styles-colors-budget-container:hover {
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Styles */
+.custom-btn {
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.custom-btn-primary {
+  background-color: #0069d9;
+  color: #fff;
+}
+
+.custom-btn-primary:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.custom-btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.custom-btn-success {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.custom-btn-success:hover {
+  background-color: #218838;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Edit Mode Section */
+.edit-mode-section {
+  background-color: #f0f8ff;
+  border: 2px dashed #00bfff;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+.edit-mode-section:hover {
+  background-color: #e6f7ff;
+  border-color: #00aaff;
+}
+
+.template-btn{
+
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease,transform 0.15s ease;
+  will-change: box-shadow,transform;
+  background: #FCFCFD;
+  box-shadow: 0px 2px 4px rgb(45 35 66 / 40%), 0px 7px 13px -3px rgb(45 35 66 / 30%), inset 0px -3px 0px #d6d6e7;
+  height: 48px;
+  padding: 0 32px;
+  font-size: 18px;
+  border-radius: 6px;
+  color: #36395a;
+  transition: box-shadow 0.15s ease,transform 0.15s ease;
+
+}
+.template-btn  :hover {
+  box-shadow: 0px 4px 8px rgb(45 35 66 / 40%), 0px 7px 13px -3px rgb(45 35 66 / 30%), inset 0px -3px 0px #d6d6e7;
+  transform: translateY(-2px);
+}
+.template-btn :active{
+  box-shadow: inset 0px 3px 7px #d6d6e7;
+  transform: translateY(2px);
+}
+
+/* Responsive design for small screens */
+@media (max-width: 1200px) {
+  .custom-wedding-styles-colors-budget-container {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .custom-card {
+    padding: 20px;
+    margin-bottom: 15px;
+  }
+
+  .custom-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-wedding-styles-colors-budget-container {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .custom-card {
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+
+  .custom-btn {
+    padding: 12px;
+    font-size: 16px;
+  }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 576px) {
+  .custom-wedding-styles-colors-budget-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .custom-btn {
+    font-size: 15px;
+    padding: 10px 15px;
+  }
+
+  .custom-card {
+    padding: 15px;
+  }
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: #333;
+  font-weight: 600;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}

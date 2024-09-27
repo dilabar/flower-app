@@ -1,0 +1,41 @@
+<div class="container full-height">
+    <div class="row justify-content-center flex-grow">
+      <div class="col-md-10">
+        <div class="steps-container">
+          <div class="steps-wrapper">
+            <div class="step completed">1</div>
+            <div class="line-wrapper active">
+              <div class="line"></div>
+            </div>
+            <div class="step completed">2</div>
+            <div class="line-wrapper active">
+              <div class="line"></div>
+            </div>
+            <div class="step active">3</div>
+          </div>
+          <div class="step-labels">
+            <div class="label">Personal Details</div>
+            <div class="label">Account Details</div>
+            <div class="label">Choose Plan</div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <!-- Plans -->
+          <div class="col-md-4" *ngFor="let plan of plans">
+            <div class="card border-primary">
+              <div class="card-body">
+                <h5 class="card-title">{{ plan.name }}</h5>
+                <p class="card-text">{{ plan.price }}</p>
+                <p class="card-text">{{ plan.details }}</p>
+                <p class="card-text">{{ plan.trial }}</p>
+                <form (ngSubmit)="onSelectPlan(plan.value)">
+                  <button type="submit" class="btn btn-wedding">Get Started</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

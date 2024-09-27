@@ -1,0 +1,138 @@
+/* Main Inspiration Container */
+.custom-inspiration-container {
+  display: flex;
+  gap: 0; /* No gap between cards */
+  padding: 10px;
+  border: #eceaea 0.12px solid;
+  box-shadow: rgba(170, 170, 170, 0.25) 0px 2px 4px 1px;
+  width: 100%;
+  height: 350px;
+  overflow-x: auto; /* Allow horizontal scroll if content overflows */
+}
+
+.custom-inspiration-card {
+  width: 290px; /* Fixed width */
+  height: 100%; /* Full height of the container */
+  position: relative;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: #d9d9d9 solid 0.5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 0 !important; /* Ensure no margin between cards */
+  overflow: hidden; /* Hide overflow to prevent white space */
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: flex-start; /* Align items at the top */
+}
+
+.custom-inspiration-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.custom-card-content {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+}
+
+.custom-clickable-element.custom-Image img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover; /* Ensures the image covers both width and height */
+  object-position: center; /* Centers the image within the container */
+}
+
+.custom-plus-button {
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgba(16, 8, 20, 0.46);
+  border-radius: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.custom-plus-button svg {
+  width: 52px;
+  height: 52px;
+  color: #9d9a9e;
+  transform: scale(0.6);
+  transition: 200ms;
+}
+
+.custom-plus-button:hover {
+  border-color: #eceaea;
+  background-color: #9fc7bd;
+}
+
+.custom-plus-button svg:hover {
+  color: #eceaea;
+}
+
+.custom-remove-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(255, 0, 0, 0.7); /* Red button with transparency */
+  color: white;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  display: none; /* Hidden by default */
+  transition: background-color 0.3s;
+}
+
+.custom-remove-button:hover {
+  background-color: rgba(255, 0, 0, 1); /* Fully opaque on hover */
+}
+
+.custom-inspiration-card:hover .custom-remove-button {
+  display: block; /* Show the button when card is hovered */
+}
+
+.custom-file-input {
+  display: none;
+}
+
+/* Responsive Design Adjustments */
+
+/* Tablet Screens (up to 768px) */
+@media (max-width: 768px) {
+  .custom-inspiration-container {
+    justify-content: center; /* Center content on smaller screens */
+    flex-wrap: wrap; /* Cards will wrap to new rows */
+  }
+
+  .custom-inspiration-card {
+    flex: 1 1 calc(50% - 10px); /* 2 cards per row */
+    height: 300px; /* Adjust height to be smaller for tablets */
+  }
+
+  .custom-clickable-element.custom-Image img {
+    height: 300px; /* Adjust image height accordingly */
+  }
+}
+
+/* Mobile Screens (up to 576px) */
+@media (max-width: 576px) {
+  .custom-inspiration-container {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .custom-inspiration-card {
+    flex: 1 1 100%; /* Full-width cards for mobile */
+    height: 250px; /* Smaller height for mobile */
+  }
+
+  .custom-clickable-element.custom-Image img {
+    height: 250px; /* Adjust image height for mobile */
+  }
+}

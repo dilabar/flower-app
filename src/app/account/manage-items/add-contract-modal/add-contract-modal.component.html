@@ -1,0 +1,21 @@
+<div class="modal-header">
+    <h5 class="modal-title">{{ contractData ? 'Edit Contract' : 'Add Contract' }}</h5>
+    <button type="button" class="btn-close" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="contractForm" (ngSubmit)="saveContract()">
+      <div class="mb-3">
+        <label for="name" class="form-label">Contract Name</label>
+        <input type="text" class="form-control" id="name" formControlName="name" placeholder="Enter contract name">
+      </div>
+      <div class="mb-3">
+        <label for="retainer" class="form-label">Non-Refundable Retainer</label>
+        <input type="number" class="form-control" id="retainer" formControlName="non_refundable_retainer" placeholder="Enter retainer amount" step="0.01">
+      </div>      
+      <div class="mb-3">
+        <label for="content" class="form-label">Contract Content</label>
+        <textarea class="form-control" id="content" formControlName="content" rows="3" placeholder="Enter contract content"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">{{ contractData ? 'Update Contract' : 'Add Contract' }}</button>
+    </form>
+</div>

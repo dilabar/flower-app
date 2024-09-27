@@ -1,0 +1,15 @@
+<div class="modal-header">
+  <h5 class="modal-title">Select a Wedding Color</h5>
+  <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+</div>
+<div class="modal-body">
+  <div class="colors-container">
+    <div *ngFor="let color of weddingColors" class="color-card" (click)="selectColor(color)">
+      <div class="color-circle" [ngStyle]="{ 'background-color': color.color_hex }"></div>
+      <p class="color-name">{{ color.color_name }}</p>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+</div>

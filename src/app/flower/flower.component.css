@@ -1,0 +1,260 @@
+.container{
+
+}
+/* Gallery view styling */
+.gallery-view .flower-card {
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery-view .flower-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .flower-card img.card-img-top {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .flower-card h5 {
+    font-size: 1.25rem;
+    margin: 0.5rem 0;
+  }
+  
+/* List view styling */
+.list-view .flower-list-item {
+    padding: 1rem;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background-color: white;
+  }
+  
+  .list-view .flower-list-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .flower-list-image {
+    width: 100%;
+    height: auto;
+    max-height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .list-view h5 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+  }
+  
+  .list-view p {
+    margin: 0.25rem 0;
+  }
+  
+  .modal.fade.show {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  /* Styling for the table header */
+.list-view table thead {
+    background-color: #e9f5f3; /* Use the color from your screenshot */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-collapse: separate;
+    background: linear-gradient(1deg, #17a2b8 0%, #d7ffe0 100%);
+  }
+  
+  .list-view table thead th {
+    padding: 10px;
+    text-align: left;
+    color: #ffffff; /* Darker color for the text */
+    font-weight: 600;
+    border-top: none;
+
+
+  }
+  
+  /* Ensure the corners of the first and last header cells have rounded edges */
+  .list-view table thead th:first-child {
+    border-top-left-radius: 10px;
+  }
+  
+  .list-view table thead th:last-child {
+    border-top-right-radius: 10px;
+  }
+  
+  /* Table body styling */
+  .list-view table tbody tr {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd; /* Divider between rows */
+  }
+  
+  .list-view table tbody tr:hover {
+    background-color: #f9f9f9; /* Slight hover effect on table rows */
+  }
+  
+  .list-view table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .list-view table th, .list-view table td {
+    padding: 15px;
+    text-align: left;
+  }
+
+
+  thead {
+    background: -webkit-linear-gradient(top, rgba(126, 181, 167, 0.65) 0%, rgba(126, 181, 167, 0.85) 50%, rgb(126, 181, 167) 100%);
+    box-shadow: rgba(126, 181, 167, 0.25) 0px 4px 4px 2px;
+    border-radius: 15px; /* Rounded corners */
+    padding: 5px;
+
+  }
+
+  /* modal form*/
+  .modal-content {
+    border-radius: 20px;
+    padding: 20px;
+    background-color: #fff; /* Light background */
+    box-shadow: rgba(126, 181, 167, 0.25) 0px 4px 4px 2px;
+  }
+  
+  .form-control {
+    border-radius: 10px;
+    /* padding: 10px; */
+    border: 1px solid #e0e0e0; /* Light grey border for input fields */
+    background-color: #f9f9f9; /* Subtle background color for inputs */
+  }
+  
+  .form-label {
+    font-weight: bold;
+    color: #333; /* Darker grey for label text */
+  }
+  
+  .image-preview img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .btn-success {
+    background-color: #83c5be; /* Light green save button */
+    border-color: #83c5be; /* Border matching the button */
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: white;
+  }
+  
+  .btn-danger {
+    background-color: #ff6b6b; /* Soft red for delete button */
+    border-color: #ff6b6b;
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: white;
+  }
+  
+
+  
+  .btn-secondary {
+    background-color: #cccccc; /* Light grey close button */
+    border-color: #cccccc;
+    border-radius: 20px;
+    padding: 10px 20px;
+  }
+  
+  .modal-header {
+    border-bottom: none; /* Remove header border */
+  }
+  
+  .modal-footer {
+    border-top: none; /* Remove footer border */
+    padding-top: 20px;
+  }
+
+  
+  
+  .flower-col {
+    width: calc(100% / 5); /* Each item takes 1/5 of the row */
+    padding: 10px;
+  }
+  
+  .flower-card {
+    height: 100%; /* Ensure the card takes the full height for consistent layout */
+  }
+  
+  @media (max-width: 1200px) {
+    .flower-col {
+      width: calc(100% / 4); /* 4 items per row on medium screens */
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .flower-col {
+      width: calc(100% / 3); /* 3 items per row on smaller screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .flower-col {
+      width: calc(100% / 2); /* 2 items per row on mobile screens */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .flower-col {
+      width: 100%; /* 1 item per row on extra small screens */
+    }
+  }
+  
+  .card-d{
+
+  
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(170, 170, 170, 0.25) 0px 2px 4px 1px;
+  }
+
+      /* Card Style */
+      .flower-card {
+        max-width: 300px;
+        margin: 0 auto;
+        border: none;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+  
+      .flower-card img {
+        width: 100%;
+        height: auto;
+      }
+  
+      .flower-card .card-body {
+        padding: 10px;
+        text-align: center;
+      }
+  
+      .flower-card .card-body h5 {
+        font-weight: 600;
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: #8cbdb1;
+      }
+  
+      .flower-card .card-body p {
+        margin: 0;
+        font-size: 0.9rem;
+        color: #777;
+      }
+      .btn-light {
+        background-color: #ffffff; /* Light background for reset button */
+        border: 1px solid #cfd8dc; /* Subtle border */
+        border-radius: 20px;
+    }

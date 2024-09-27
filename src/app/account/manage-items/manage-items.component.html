@@ -1,0 +1,70 @@
+<div class="container-fluid">
+    <div class="row">
+      <app-sidebar></app-sidebar>
+  
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">Manage Items</h1>
+        </div>
+  
+        <div class="container-fluid">
+          <div class="col-md-12">
+            <div class="card mb-4">
+              <div class="card-header">
+                <h5 class="mb-0">Select View</h5>
+              </div>
+              <div class="card-body">
+                <div class="d-flex">
+                  <button class="btn btn-wedding flex-fill me-2" (click)="showContracts()">My Contracts</button>
+                  <button class="btn btn-secondary flex-fill" (click)="showLetters()">My Letters</button>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Contracts Section -->
+            <div id="contractsSection" *ngIf="currentView === 'contracts'" class="section-margin">
+              <div class="card">
+                <div class="card-header">
+                  <h4>My Contracts</h4>
+                </div>
+                <div class="card-body card-body-content">
+                    <button class="btn btn-success mb-3" (click)="openAddContractModal()">Add Contract</button>
+                  <div class="list-group">
+                    <div class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let contract of contracts">
+                      {{ contract.name }}
+                      <div>
+                        <button (click)="editContract(contract.id)" class="btn btn-warning btn-sm me-2">Edit</button>
+                        <button (click)="deleteContract(contract.id)" class="btn btn-danger btn-sm">Delete</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Letters Section -->
+            <div id="lettersSection" *ngIf="currentView === 'letters'" class="section-margin">
+              <div class="card">
+                <div class="card-header">
+                  <h4>My Letters</h4>
+                </div>
+                <div class="card-body card-body-content">
+                  <a routerLink="/account/add-letter" class="btn btn-success mb-3">Add Letter</a>
+                  <div class="list-group">
+                    <div class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let letter of letters">
+                      {{ letter.name }}
+                      <div>
+                        <button (click)="editLetter(letter.id)" class="btn btn-warning btn-sm me-2">Edit</button>
+                        <button (click)="deleteLetter(letter.id)" class="btn btn-danger btn-sm">Delete</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  

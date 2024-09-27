@@ -1,0 +1,37 @@
+<div class="custom-ceremony-section">
+  <h5 class="custom-ceremony-section-title">Ceremony Inspirations</h5>
+  <div class="custom-ceremony-inspirations">
+    <app-inspirations [section]="'ceremony'"></app-inspirations>
+  </div>
+
+  <h5 class="custom-ceremony-section-title">Ceremony</h5>
+  
+  <div class="custom-ceremony-card-container">
+    <div *ngFor="let card of ceremonyCards" class="custom-ceremony-card">
+      <!-- Editable Title -->
+      <h5 
+        class="custom-ceremony-card-title" 
+        contenteditable="true" 
+        (blur)="saveTitleChange(card, $event)"
+        (keydown.enter)="saveTitleChange(card, $event); $event.preventDefault()">
+        {{ card.card_title || 'No Title' }}
+      </h5>
+
+      <ng-container *ngIf="card.image_url; else plusButton">
+        <img [src]="card.image_url" alt="{{ card.card_title }}" class="custom-ceremony-card-image" />
+        <div class="ceremony-card-actions">
+          <button (click)="openEditModal(card)" class="ceremony-edit-btn">Edit</button>
+          <button (click)="removeArrangement(card)" class="ceremony-remove-btn">Remove</button>
+        </div>
+      </ng-container>
+
+      <ng-template #plusButton>
+        <button (click)="openAddModal(card)" class="ceremony-plus-btn">+</button>
+      </ng-template>
+      <button class="delete-btn" (click)="removeCeremonyCard(card)">X</button>
+    </div>
+  </div>
+
+  <!-- Add Card Button -->
+  <button class="custom-btn custom-btn-add-card" (click)="openAddEmptyCardModal()">Add Card</button>
+</div>

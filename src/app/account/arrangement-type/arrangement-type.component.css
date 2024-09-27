@@ -1,0 +1,24 @@
+.arrangement-type-form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+  
+  .success-message {
+    color: green;
+    font-size: 14px;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 14px;
+  }
+  

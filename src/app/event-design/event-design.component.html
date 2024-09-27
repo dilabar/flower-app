@@ -1,0 +1,47 @@
+<div class="custom-container custom-event-design-container">
+  <h2 class="my-4">Event Design</h2>
+
+  <!-- Save Template and Apply Template Buttons -->
+  <button class="template-btn" (click)="openSaveTemplateModal()">Save As a Template</button>
+  <button class="template-btn" (click)="openApplyTemplateModal()">Apply Existing Template</button>
+
+  <!-- Wedding Styles, Colors, and Budget Section -->
+  <div class="custom-wedding-styles-colors-budget-container">
+    <app-wedding-styles></app-wedding-styles>
+    <app-wedding-colors></app-wedding-colors>
+    <app-budget></app-budget>
+  </div>
+
+  <!-- Personals Section -->
+  <div>
+    <app-personals></app-personals>
+    <div class="custom-personals-card-container">
+      <div *ngFor="let card of personalsCards" class="custom-personals-card">
+        <h5 class="custom-personals-card-title">{{ card.title }}</h5>
+        <button class="personals-plus-btn">+</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ceremony Section -->
+  <div>
+    <app-ceremony></app-ceremony>
+    <div class="custom-ceremony-card-container">
+      <div *ngFor="let card of ceremonyCards" class="custom-ceremony-card">
+        <h5 class="custom-ceremony-card-title">{{ card.title }}</h5>
+        <button class="ceremony-plus-btn">+</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reception Section -->
+  <div>
+    <app-reception></app-reception>
+    <div class="custom-reception-card-container">
+      <div *ngFor="let card of receptionCards" class="custom-reception-card">
+        <h5 class="custom-reception-card-title">{{ card.title }}</h5>
+        <button class="reception-plus-btn">+</button>
+      </div>
+    </div>
+  </div>
+</div>

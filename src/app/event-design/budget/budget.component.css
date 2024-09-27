@@ -1,0 +1,79 @@
+/* Main Budget Container */
+.custom-budget-container {
+  background-color: #ffffff;
+  border: 1px solid rgba(236, 234, 234, 0.8); /* Soft border */
+  border-radius: 20px; /* Rounded corners for a modern feel */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 600px; /* Match the width of wedding colors container */
+  height: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.custom-budget-container:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Lift effect on hover */
+  transform: translateY(-5px);
+}
+
+/* Title Styling */
+.custom-card-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #2c3e50; /* Darker, elegant color */
+}
+
+/* Divider Line */
+.custom-container-line {
+  height: 2px;
+  background-color: #ccc;
+  margin-bottom: 15px;
+  width: 80%;
+  border-radius: 2px;
+}
+
+/* Budget Text Styling */
+.custom-card-text {
+  font-size: 26px; /* Larger, more prominent text for the budget value */
+  font-weight: 700;
+  color: #007bff; /* Accent color for the budget */
+  margin-top: 10px;
+}
+
+/* Responsiveness for different screen sizes */
+@media (max-width: 768px) {
+  .custom-budget-container {
+    max-width: 100%;
+    padding: 15px;
+    height: auto; /* Auto height for smaller screens */
+  }
+
+  .custom-card-title {
+    font-size: 20px;
+  }
+
+  .custom-card-text {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 576px) {
+  .custom-budget-container {
+    padding: 12px;
+  }
+
+  .custom-card-title {
+    font-size: 18px;
+  }
+
+  .custom-card-text {
+    font-size: 20px;
+  }
+}
