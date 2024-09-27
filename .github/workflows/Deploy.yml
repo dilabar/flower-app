@@ -5,7 +5,9 @@ on:
   push:
     branches:
       - main  # Change this to your default branch if different
-
+permissions:
+  contents: write  # Required for pushing to gh-pages
+  pages: write
 jobs:
   deploy:
     runs-on: ubuntu-latest
