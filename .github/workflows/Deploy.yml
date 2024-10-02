@@ -25,7 +25,7 @@ jobs:
       run: npm install -f
 
     - name: Build Angular project
-      run: npm run build -- --base-href "/flower-app/" --output-path=dist/frontend
+      run: npm run build -- --base-href "https://dilabar.github.io/flower-app/" --output-path=dist/frontend
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
